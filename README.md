@@ -2,7 +2,12 @@
 
 ## 📌 Açıklama
 **Hash2TIE**, `.txt` dosyasındaki MD5/SHA-1/SHA-256 hash’lerini **Trellix TIE** uyumlu **FileReputation** XML bloklarına dönüştürür.  
-Doğru etiketi otomatik seçer ve `ReputationLevel=1` ekler böylece yüzlerce hash değerini tek seferde TIE'a girebileceksiniz.
+Doğru etiketi sizin için seçer ve `ReputationLevel=1` ekler böylece yüzlerce hash değerini tek seferde TIE'a girebilirsiniz.
+
+- Çıktı dosyasının başına `<TIEReputations>` ve sonuna `</TIEReputations>` ekleyip xml olarak kaydedin.
+- XML dosyasını Trellix ePO → TIE Reputations → File Overrides kısmına import edin.
+- Import edilen hashler File Overrides sayfasında "File Name" içermediğinden listelenmeyebilir.
+- Girdilerinizi görüntüleyebilmek için filtre ayarı yaparak "File Name" değerini "Value is blank" olarak belirleyin.
 
 ## 🔹 1) Gereksinimler
 - Python 3.8+
@@ -21,16 +26,12 @@ hashes.txt
 ## 🔹 3) Kullanım
 Varsayılan çıktı:
 ```bash
-python3 hash2tie.py hashes.txt
+python hash2tie.py hashes.txt
 ```
 XML çıktı:
 ```bash
-python3 hash2tie.py hashes.txt -o reputations.xml
+python hash2tie.py hashes.txt -o reputations.xml
 ```
-- Çıktı dosyasının başına <TIEReputations> ve sonuna </TIEReputations> ekleyip xml olarak kaydedin.
-- XML dosyasını Trellix ePO → TIE Reputations → File Overrides kısmına import edin.
-- Import edilen hashler File Overrides sayfasında "File Name" içermediğinden listelenmeyebilir.
-- Girdilerinizi görüntüleyebilmek için filtre ayarı yaparak "File Name" değerini "Value is blank" olarak belirleyin.
 
 ## 🔹 4) Örnek
 **Girdi (`hashes.txt`):**

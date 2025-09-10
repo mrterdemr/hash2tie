@@ -1,47 +1,47 @@
 # Hash2TIE
 
-## 📌 Açıklama
-**Hash2TIE**, `.txt` dosyasındaki MD5/SHA-1/SHA-256 hash’lerini **Trellix TIE** uyumlu **FileReputation** XML bloklarına dönüştürür.  
-Doğru etiketi sizin için seçer ve `ReputationLevel=1` ekler böylece yüzlerce hash değerini tek seferde TIE'a girebilirsiniz.
+## 📌 Description
+**Hash2TIE** converts MD5/SHA-1/SHA-256 hashes in a `.txt` file into **FileReputation** XML blocks compatible with **Trellix TIE**.  
+It selects the correct tag for you and adds `ReputationLevel=1`, so you can enter hundreds of hash values into TIE in one go.
 
-- Çıktı dosyasının başına `<TIEReputations>` ve sonuna `</TIEReputations>` ekleyip xml olarak kaydedin.
-- XML dosyasını Trellix ePO → TIE Reputations → File Overrides kısmına import edin.
-- Import edilen hashler File Overrides sayfasında "File Name" içermediğinden listelenmeyebilir.
-- Girdilerinizi görüntüleyebilmek için filtre ayarı yaparak "File Name" değerini "Value is blank" olarak belirleyin.
+- Add `<TIEReputations>` to the beginning of the output file and `</TIEReputations>` to the end, then save it as XML.
+- Import the XML file into Trellix ePO → TIE Reputations → File Overrides.
+- The imported hashes may not be listed on the File Overrides page because they don’t include a "File Name".
+- To view your entries, adjust the filter and set the "File Name" value to "Value is blank".
 
-## 🔹 1) Gereksinimler
+## 🔹 1) Requirements
 - Python 3.8+
-- Her satırda tek bir hash (yalnızca hexadecimal: `0-9a-fA-F`), uzunluk:
-  - MD5 → 32 karakter
-  - SHA-1 → 40 karakter
-  - SHA-256 → 64 karakter
+- A single hash per line (hexadecimal only: `0-9a-fA-F`), lengths:
+  - MD5 → 32 characters
+  - SHA-1 → 40 characters
+  - SHA-256 → 64 characters
 
-## 🔹 2) Kurulum
-Dosyaları aynı klasöre koyun:
+## 🔹 2) Setup
+Put the files in the same folder:
 ```
 hash2tie.py
 hashes.txt
 ```
 
-## 🔹 3) Kullanım
-Varsayılan çıktı:
+## 🔹 3) Usage
+Default output:
 ```bash
 python hash2tie.py hashes.txt
 ```
-XML çıktı:
+XML output:
 ```bash
 python hash2tie.py hashes.txt -o reputations.xml
 ```
 
-## 🔹 4) Örnek
-**Girdi (`hashes.txt`):**
+## 🔹 4) Example
+**Input (`hashes.txt`):**
 ```
 d41d8cd98f00b204e9800998ecf8427e
 da39a3ee5e6b4b0d3255bfef95601890afd80709
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ```
 
-**Çıktı (`file_reputations.txt`):**
+**Output (`file_reputations.txt`):**
 ```xml
 <FileReputation>
   <MD5Hash>d41d8cd98f00b204e9800998ecf8427e</MD5Hash>
@@ -57,7 +57,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 </FileReputation>
 ```
 
-## 🔹 5) Sorun Giderme
-- Dosya bulunamadı → Yol ve ismi kontrol edin.  
-- Çıktı yok → Tüm satırlar geçersiz; hash formatını kontrol edin.
-- XML formatı hatalı → Çıktı dosyasının başına `<TIEReputations>` ve sonuna `</TIEReputations>` ekleyip xml kaydedin.
+## 🔹 5) Troubleshooting
+- File not found → Check the path and file name.  
+- No output → All lines are invalid; check the hash format.
+- Invalid XML format → Add `<TIEReputations>` at the beginning and `</TIEReputations>` at the end of the output file and save it as XML.

@@ -60,4 +60,4 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ## 🔹 5) Sorun Giderme
 - Dosya bulunamadı → Yol ve ismi kontrol edin.  
 - Çıktı yok → Tüm satırlar geçersiz; hash formatını kontrol edin.
-- XML formatı hatalı → Çıktı dosyasının başına <TIEReputations> ve sonuna </TIEReputations> ekleyip xml kaydedin.
+- XML formatı hatalı → Çıktı dosyasının başına `<TIEReputations>` ve sonuna `</TIEReputations>` ekleyip xml kaydedin.

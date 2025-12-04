@@ -1,6 +1,6 @@
 # Hash2TIE
 
-## 📌 Description
+## Description
 **Hash2TIE** converts MD5/SHA-1/SHA-256 hashes in a `.txt` file into **FileReputation** XML blocks compatible with **Trellix TIE**.  
 It selects the correct tag for you and adds `ReputationLevel=1`, so you can enter hundreds of hash values into TIE in one go.
 
@@ -9,21 +9,21 @@ It selects the correct tag for you and adds `ReputationLevel=1`, so you can ente
 - The imported hashes may not be listed on the File Overrides page because they don’t include a "File Name".
 - To view your entries, adjust the filter and set the "File Name" value to "Value is blank".
 
-## 🔹 1) Requirements
+## Requirements
 - Python 3.8+
 - A single hash per line (hexadecimal only: `0-9a-fA-F`), lengths:
   - MD5 → 32 characters
   - SHA-1 → 40 characters
   - SHA-256 → 64 characters
 
-## 🔹 2) Setup
+## Setup
 Put the files in the same folder:
 ```
 hash2tie.py
 hashes.txt
 ```
 
-## 🔹 3) Usage
+## Usage
 Default output:
 ```bash
 python hash2tie.py hashes.txt
@@ -33,7 +33,7 @@ XML output:
 python hash2tie.py hashes.txt -o reputations.xml
 ```
 
-## 🔹 4) Example
+## Example
 **Input (`hashes.txt`):**
 ```
 d41d8cd98f00b204e9800998ecf8427e
@@ -57,7 +57,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 </FileReputation>
 ```
 
-## 🔹 5) Troubleshooting
+## Troubleshooting
 - File not found → Check the path and file name.  
 - No output → All lines are invalid; check the hash format.
 - Invalid XML format → Add `<TIEReputations>` at the beginning and `</TIEReputations>` at the end of the output file and save it as XML.

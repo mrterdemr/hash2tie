@@ -1,6 +1,6 @@
 # Hash2TIE
 
-## 📌 Açıklama
+## Açıklama
 **Hash2TIE**, `.txt` dosyasındaki MD5/SHA-1/SHA-256 hash’lerini **Trellix TIE** uyumlu **FileReputation** XML bloklarına dönüştürür.  
 Doğru etiketi sizin için seçer ve `ReputationLevel=1` ekler böylece yüzlerce hash değerini tek seferde TIE'a girebilirsiniz.
 
@@ -9,21 +9,21 @@ Doğru etiketi sizin için seçer ve `ReputationLevel=1` ekler böylece yüzlerc
 - Import edilen hashler File Overrides sayfasında "File Name" içermediğinden listelenmeyebilir.
 - Girdilerinizi görüntüleyebilmek için filtre ayarı yaparak "File Name" değerini "Value is blank" olarak belirleyin.
 
-## 🔹 1) Gereksinimler
+## Gereksinimler
 - Python 3.8+
 - Her satırda tek bir hash (yalnızca hexadecimal: `0-9a-fA-F`), uzunluk:
   - MD5 → 32 karakter
   - SHA-1 → 40 karakter
   - SHA-256 → 64 karakter
 
-## 🔹 2) Kurulum
+## Kurulum
 Dosyaları aynı klasöre koyun:
 ```
 hash2tie.py
 hashes.txt
 ```
 
-## 🔹 3) Kullanım
+## Kullanım
 Varsayılan çıktı:
 ```bash
 python hash2tie.py hashes.txt
@@ -33,7 +33,7 @@ XML çıktı:
 python hash2tie.py hashes.txt -o reputations.xml
 ```
 
-## 🔹 4) Örnek
+## Örnek
 **Girdi (`hashes.txt`):**
 ```
 d41d8cd98f00b204e9800998ecf8427e
@@ -57,7 +57,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 </FileReputation>
 ```
 
-## 🔹 5) Sorun Giderme
+## Sorun Giderme
 - Dosya bulunamadı → Yol ve ismi kontrol edin.  
 - Çıktı yok → Tüm satırlar geçersiz; hash formatını kontrol edin.
 - XML formatı hatalı → Çıktı dosyasının başına `<TIEReputations>` ve sonuna `</TIEReputations>` ekleyip xml kaydedin.

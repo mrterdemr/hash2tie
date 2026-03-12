@@ -2,7 +2,8 @@
 
 ## Description
 **Hash2TIE** converts MD5/SHA-1/SHA-256 hashes in a `.txt` file into a **TIEReputations** XML file compatible with **Trellix TIE**.  
-It selects the correct tag for you, wraps all entries in `<TIEReputations>` tags, and adds `ReputationLevel=1`, so you can import hundreds of hashes into TIE in one go.
+
+It selects the correct tag for you, wraps each hash in `<FileReputation>` tags, groups all entries under `<TIEReputations>`, and adds `ReputationLevel=1`, so you can import hundreds of hashes into TIE in one go.
 
 - Import the XML file into Trellix ePO → TIE Reputations → File Overrides.
 - The imported hashes may not be listed on the File Overrides page because they don’t include a "File Name".
